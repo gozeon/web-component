@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.2.0/webcomponents-lite.js"></script>
+    <link rel="import" href="msgbanner.html" id="tmplFile">
+
+    <style>
+        message-banner{
+            margin-bottom: 20px;
+            color: #ffa54a;
+        }
+
+        message-banner[type="critical"] {
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+
+<message-banner id="banner" visible type='critical'>
+    1 type='critical'
+</message-banner>
+
+<message-banner id="banner" visible>
+   2
+</message-banner>
+
+<message-banner id="banner" visible>
+    <div id="content">isn't a text node</div>
+</message-banner>
+
+<script>
+    console.log(document.querySelector('message-banner #content')); //  <div id="content">isn't a text node</div>
+</script>
+
+</body>
+
+
+</html>
