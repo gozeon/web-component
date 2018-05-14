@@ -7,37 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.2.0/webcomponents-lite.js"></script>
-    <link rel="import" href="msgbanner.html" id="tmplFile">
-
-    <style>
-        message-banner{
-            margin-bottom: 20px;
-            color: #ffa54a;
-        }
-
-        message-banner[type="critical"] {
-            color: red;
-        }
-    </style>
+    <link rel="import" href="tab.html">
 
 </head>
 <body>
+<fancy-tabs>
+    <h2 slot="title">Title</h2>
+    <h2 slot="title" selected>Title 2</h2>
+    <h2 slot="title">Title 3</h2>
 
-<message-banner id="banner" visible type='critical'>
-    1 type='critical'
-</message-banner>
+    <section>content panel 1</section>
+    <section>content panel 2</section>
+    <section>content panel 3</section>
 
-<message-banner id="banner" visible>
-   2
-</message-banner>
-
-<message-banner id="banner" visible>
-    <div id="content">isn't a text node</div>
-</message-banner>
-
-<script>
-    console.log(document.querySelector('message-banner #content')); //  <div id="content">isn't a text node</div>
-</script>
+</fancy-tabs>
 
 </body>
 
