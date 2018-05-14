@@ -1,0 +1,16 @@
+
+<template id="tmpl">
+    <p>This is a new paragraph item: <span></span></p>
+</template>
+
+<script>
+  /**
+   * currentScript
+   * @link https://developer.mozilla.org/en-US/docs/Web/API/Document/currentScript
+   */
+  var thisImportDoc = document.currentScript.ownerDocument;
+
+  var tmplNode = thisImportDoc.querySelector('#tmpl');
+
+  document.body.appendChild(tmplNode.cloneNode(true)); // 相当于做了提前做了append操作
+</script>

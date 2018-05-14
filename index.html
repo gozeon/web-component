@@ -6,22 +6,24 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="import" href="template.html" id="tmplFile">
+
+    <link rel="import" href="component.html">
 </head>
 <body>
 <div id="root"></div>
 <script>
   var count = 0;
-  var tmplLink = document.querySelector('#tmplFile');
-  var tmplFile = tmplLink.import;
-  var tmpl = tmplFile.querySelector("#tmpl");
+  var tmpl = document.querySelector('#tmpl');
   tmpl.content.querySelector("span").textContent = count;
 
-  // @link https://developer.mozilla.org/en-US/docs/Web/API/Document/importNode
+  /**
+   * importNode
+   * @link https://developer.mozilla.org/en-US/docs/Web/API/Document/importNode
+   */
   var newNode = document.importNode(tmpl.content, true);
   document.getElementById("root").appendChild(newNode);
 
-  setInterval(() => document.querySelector('#root p span').textContent = count++, 1000);
+  setInterval(() => document.getElementById('root').querySelector('p span').textContent = count++, 1000);
 </script>
 </body>
 </html>
