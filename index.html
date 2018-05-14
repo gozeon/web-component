@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<template id="tmpl">
+    <p>This is a new paragraph item: <span></span></p>
+    <script>
+      console.log("Template has been instantiated");
+    </script>
+</template>
+
+<div id="root"></div>
+
+<script>
+  var count = 0;
+  var tmpl = document.getElementById('tmpl');
+
+  // @link https://developer.mozilla.org/en-US/docs/Web/API/Document/importNode
+  var newNode = document.importNode(tmpl.content, true);
+  newNode.querySelector('span').textContent = count;
+
+  document.getElementById('root').appendChild(newNode);
+
+  setInterval(() => document.getElementById('root').querySelector('p span').textContent = count++, 1000);
+</script>
+</body>
+</html>
