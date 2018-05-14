@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        hello-world {
+            display: block;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            background: aquamarine;
+            padding-left: 20px;
+        }
+
+        hello-world div{
+            color: #ffffff;
+            /*background: blanchedalmond;*/
+        }
+    </style>
+
+</head>
+<body>
+
+<hello-world>
+<!--<hello-world txt="Goze">-->
+    <div>Hello World</div>
+</hello-world>
+
+<script>
+  class HelloWorld extends HTMLElement {
+    constructor() {
+      super();
+
+
+      if(this.txt) {
+        this.innerText = `Hello ${this.txt}`;
+      }
+    }
+    set txt(txt) {
+      if(txt) {
+        this.setAttribute('txt', txt);
+      } else {
+        this.removeAttribute('txt');
+      }
+    }
+    get txt() {
+      return this.getAttribute('txt');
+    }
+
+    // @link https://developers.google.com/web/fundamentals/web-components/customelements#reactions
+    connectedCallback() {
+      console.log('connectedCallback');
+    }
+
+    disconnectedCallback() {
+      console.log('disconnectedCallback');
+
+    }
+
+    adoptedCallback() {
+      console.log('adoptedCallback');
+    }
+
+    attributeChangedCallback() {
+      console.log('attributeChangedCallback');
+    }
+  }
+
+  // document.querySelector('hello-world').setAttribute('txt', 'goze'); // 生效
+  customElements.define("hello-world", HelloWorld);
+  // document.querySelector('hello-world').setAttribute('txt', 'goze'); // 不生效
+</script>
+
+<script>
+    console.log(document.querySelector('hello-world'));
+    console.log(document.querySelector('hello-world') instanceof HTMLElement);
+    // document.querySelector('hello-world').setAttribute('txt', 'goze'); // 不生效的
+    document.querySelector('hello-world').onclick =  function (e) {
+      alert("i'm hello world");
+    }
+</script>
+
+</body>
+</html>
