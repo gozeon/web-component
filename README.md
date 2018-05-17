@@ -4,6 +4,8 @@
 
 - https://custom-elements-everywhere.com/
 
+- https://micro-frontends.org/
+
 # polymer
 
 - [https://medium.com/@jecelynyeen/polymer-3-0-preview-building-a-mini-card-game-ce8948265fd6](https://medium.com/@jecelynyeen/polymer-3-0-preview-building-a-mini-card-game-ce8948265fd6)
